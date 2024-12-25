@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hamurabi</title>
+    <style>
+      body {
+        background-color: black;
+        font-size: 0.8em;
+        color: rgb(252, 252, 252); /* Green text */
+        font-family: "Press Start 2P", monospace; /* Terminal font */
+        white-space: pre-wrap; /* Preserve line breaks and spaces */
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #game-output {
+        position: relative;
+        width: 80ch;
+        margin: 20px auto;
+        padding: 20px;
+        border: 2px solid rgb(252, 252, 252);
+        overflow-y: scroll;
+        height: 400px;
+        color: white;
+        font-family: "Press Start 2P", monospace;
+        text-shadow: 0 0 5px #c8c8c8;
+        white-space: pre-wrap;
+      }
+
+      #game-output::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.15),
+          rgba(0, 0, 0, 0.15) 1px,
+          transparent 1px,
+          transparent 2px
+        );
+        pointer-events: none;
+      }
+
+      #input-area {
+        width: 80ch;
+        margin: 0 auto;
+        display: flex;
+      }
+
+      #user-input {
+        flex-grow: 1;
+        background-color: black;
+        color: rgb(252, 252, 252);
+        border: 2px solid rgb(252, 252, 252);
+        padding: 10px;
+        font-family: "Press Start 2P", monospace;
+      }
+
+      ::selection {
+        background: #0080ff;
+        text-shadow: none;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="game-output"></div>
+    <div id="input-area">
+      <input type="text" id="user-input" autofocus />
+    </div>
+
+    <script src="src/hammurabi.js"></script>
+  </body>
+</html>
